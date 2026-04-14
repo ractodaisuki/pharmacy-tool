@@ -121,6 +121,7 @@ function bindFilters(section, items, renderFiltered, category) {
   const filters = getCategoryFilters(category, items);
   if (!filters.length) {
     filterRow.innerHTML = `<span class="muted-text">フィルタなし</span>`;
+    renderFiltered(items);
     return;
   }
 
