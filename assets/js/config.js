@@ -26,7 +26,7 @@ export const CATEGORY_CONFIG = [
     path: "categories/pediatric.html",
     dataFile: "data/pediatric-doses.json",
     type: "pediatric",
-    searchFields: ["name", "brandName", "category", "dosage", "frequency", "ageCondition", "note", "aliases"],
+    searchFields: ["name", "brandName", "category", "dosage", "frequency", "ageCondition", "note", "aliases", "quickTable"],
     filterField: "category"
   },
   {

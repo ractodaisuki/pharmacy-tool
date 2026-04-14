@@ -56,7 +56,7 @@
     "dosage": "6mg/kg/日（1歳未満） / 4mg/kg/日（1歳以上）",
     "frequency": "分2 5日間",
     "ageCondition": "年齢で用量変更",
-    "note": "体重・年齢・剤形を必ず確認。",
+    "note": "画像メモでは 1歳以上の体重帯メモあり。体重・年齢・剤形を必ず確認。",
     "updatedAt": "2026-01-01"
   },
   {
@@ -99,17 +99,31 @@
     "id": "asverin",
     "name": "アスベリン",
     "brandName": "アスベリン",
-    "aliases": ["チペピジンヒベンズ酸塩"],
+    "aliases": ["チペピジンヒベンズ酸塩", "アスベリンシロップ0.5%"],
     "category": "鎮咳",
     "dosage": "1-2mg/kg/日",
     "frequency": "分3",
     "ageCondition": "",
-    "note": "散・シロップの規格差に注意。",
-    "updatedAt": "2026-01-01"
+    "note": "画像メモの年齢別 1日量を反映。散・シロップの規格差に注意。",
+    "updatedAt": "2026-01-01",
+    "quickTable": {
+      "cornerLabel": "1日量",
+      "headers": ["1歳未満", "1-3歳", "3-6歳", "成人"],
+      "rows": [
+        {
+          "label": "シロップ(mL/日)",
+          "values": ["1-4", "2-5", "3-8", "12-24"]
+        },
+        {
+          "label": "散(mg/日)",
+          "values": ["5-20", "10-25", "15-40", "60-120"]
+        }
+      ]
+    }
   },
   {
     "id": "xyzal",
-    "name": "ザイザル",
+    "name": "レボセチリジン（ザイザル）",
     "brandName": "ザイザル",
     "aliases": ["レボセチリジン", "レボセチリジン系"],
     "category": "抗ヒスタミン",
@@ -117,7 +131,17 @@
     "frequency": "1-2回/日",
     "ageCondition": "年齢・剤形で用法差あり",
     "note": "元メモの『ザイザル / レボセチリジン系』を統一。",
-    "updatedAt": "2026-01-01"
+    "updatedAt": "2026-01-01",
+    "quickTable": {
+      "cornerLabel": "年齢",
+      "headers": ["6か月-1歳", "1-7歳", "7-15歳"],
+      "rows": [
+        {
+          "label": "シロップ0.05%",
+          "values": ["2.5mL×1", "2.5mL×2", "5mL×2"]
+        }
+      ]
+    }
   },
   {
     "id": "alimemazine",
@@ -129,7 +153,17 @@
     "frequency": "分2-3",
     "ageCondition": "",
     "note": "眠気を含む副作用に注意。",
-    "updatedAt": "2026-01-01"
+    "updatedAt": "2026-01-01",
+    "quickTable": {
+      "cornerLabel": "年齢",
+      "headers": ["1歳", "2-3歳", "4-6歳", "7-9歳", "10-12歳"],
+      "rows": [
+        {
+          "label": "シロップ0.05%(mL/回)",
+          "values": ["1", "1.5", "2", "3", "3.5"]
+        }
+      ]
+    }
   },
   {
     "id": "tranexamic-acid",
@@ -140,8 +174,18 @@
     "dosage": "15-30mg/kg/日",
     "frequency": "分3",
     "ageCondition": "",
-    "note": "適応と禁忌を再確認。",
-    "updatedAt": "2026-01-01"
+    "note": "画像メモの 5% シロップ年齢別目安を反映。適応と禁忌を再確認。",
+    "updatedAt": "2026-01-01",
+    "quickTable": {
+      "cornerLabel": "年齢",
+      "headers": ["〜1歳", "2-3歳", "4-6歳", "7-14歳", "15歳〜"],
+      "rows": [
+        {
+          "label": "5%シロップ(mL/日)",
+          "values": ["1.5-4", "3-7", "5-13", "8-20", "15-40"]
+        }
+      ]
+    }
   },
   {
     "id": "periactin",
@@ -153,6 +197,16 @@
     "frequency": "分2-3",
     "ageCondition": "",
     "note": "食欲改善目的など使用背景を確認。",
-    "updatedAt": "2026-01-01"
+    "updatedAt": "2026-01-01",
+    "quickTable": {
+      "cornerLabel": "1回投与量",
+      "headers": ["2-3歳", "4-6歳", "7-9歳", "10-12歳"],
+      "rows": [
+        {
+          "label": "シロップ0.04%(mL/回)",
+          "values": ["3", "4", "5", "6.5"]
+        }
+      ]
+    }
   }
 ]

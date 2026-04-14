@@ -16,4 +16,7 @@
   { "id": "levofloxacin", "genericName": "レボフロキサシン", "brandName": "クラビット", "class": "ニューキノロン", "aliases": ["LVFX"], "note": "" },
   { "id": "tosufloxacin-list", "genericName": "トスフロキサシン", "brandName": "オゼックス", "class": "ニューキノロン", "aliases": ["TFLX"], "note": "小児用量ページにも関連項目あり。" },
   { "id": "garenoxacin", "genericName": "ガレノキサシン", "brandName": "ジェニナック", "class": "ニューキノロン", "aliases": ["GRNX"], "note": "" }
+,
+  { "id": "erythromycin-tablet", "genericName": "エリスロマイシン錠", "brandName": "エリスロシン錠", "class": "マクロライド", "aliases": ["EM錠"], "note": "画像メモ下段のエリスロマイシン系メモ。" },
+  { "id": "erythromycin-stearate", "genericName": "エリスロマイシンステアリン酸塩", "brandName": "エリスロシンW", "class": "マクロライド", "aliases": ["エリスロマイシン系"], "note": "塩の違いで表記揺れが出やすいため別項目化。" }
 ]

@@ -1,8 +1,20 @@
 [
   { "id": "clobetasol-propionate", "genericName": "クロベタゾールプロピオン酸エステル", "brandName": "デルモベート", "rank": "strongest", "form": "外用", "aliases": ["デルモベート軟膏"], "note": "最強群。部位と使用期間の確認が必要。" },
+  { "id": "diflorasone-diacetate", "genericName": "ジフロラゾン酢酸エステル", "brandName": "ジフラール / ダイアコート", "rank": "strongest", "form": "外用", "aliases": ["ジフラール", "ダイアコート"], "note": "画像メモの strongest 群を追加。" },
+  { "id": "diflucortolone-valerate", "genericName": "ジフルコルトロン吉草酸エステル", "brandName": "ネリゾナ", "rank": "very strong", "form": "外用", "aliases": ["ネリゾナ軟膏"], "note": "" },
   { "id": "mometasone-furoate", "genericName": "モメタゾンフランカルボン酸エステル", "brandName": "フルメタ", "rank": "very strong", "form": "外用", "aliases": ["フルメタ軟膏"], "note": "" },
   { "id": "betamethasone-butyrate-propionate", "genericName": "ベタメタゾン酪酸エステルプロピオン酸エステル", "brandName": "アンテベート", "rank": "very strong", "form": "外用", "aliases": ["アンテベート軟膏"], "note": "" },
+  { "id": "fluocinonide", "genericName": "フルオシノニド", "brandName": "トプシム", "rank": "very strong", "form": "外用", "aliases": ["トプシム軟膏"], "note": "" },
+  { "id": "amcinonide", "genericName": "アムシノニド", "brandName": "ビスダーム", "rank": "very strong", "form": "外用", "aliases": ["ビスダーム軟膏"], "note": "" },
+  { "id": "difluprednate", "genericName": "ジフルプレドナート", "brandName": "マイザー", "rank": "very strong", "form": "外用", "aliases": ["マイザー軟膏"], "note": "" },
   { "id": "dexamethasone-propionate", "genericName": "デキサメタゾンプロピオン酸エステル", "brandName": "エクラー", "rank": "strong", "form": "外用", "aliases": ["エクラー軟膏"], "note": "" },
+  { "id": "halcinonide", "genericName": "ハルシノニド", "brandName": "テクスメテン", "rank": "strong", "form": "外用", "aliases": ["テクスメテン軟膏"], "note": "" },
+  { "id": "betamethasone-valerate", "genericName": "ベタメタゾン吉草酸エステル", "brandName": "リンデロンV / ベトネベート", "rank": "strong", "form": "外用", "aliases": ["リンデロンV", "ベトネベート"], "note": "" },
+  { "id": "fluocinolone-acetonide", "genericName": "フルオシノロンアセトニド", "brandName": "フルコート", "rank": "strong", "form": "外用", "aliases": ["フルコート軟膏"], "note": "" },
+  { "id": "clobetasone-butyrate", "genericName": "クロベタゾン酪酸エステル", "brandName": "キンダベート", "rank": "medium", "form": "外用", "aliases": ["キンダベート軟膏"], "note": "" },
   { "id": "prednisolone-valerate-acetate", "genericName": "プレドニゾロン吉草酸エステル酢酸エステル", "brandName": "リドメックスコーワ", "rank": "medium", "form": "外用", "aliases": ["リドメックス"], "note": "" },
-  { "id": "hydrocortisone", "genericName": "ヒドロコルチゾン", "brandName": "オイラックスH", "rank": "weak", "form": "外用", "aliases": ["ヒドロコルチゾン製剤"], "note": "弱群。OTC と混同しないよう剤形確認。" }
+  { "id": "alclometasone-dipropionate", "genericName": "アルクロメタゾンプロピオン酸エステル", "brandName": "アルメタ", "rank": "medium", "form": "外用", "aliases": ["アルメタ軟膏"], "note": "" },
+  { "id": "triamcinolone-acetonide", "genericName": "トリアムシノロンアセトニド", "brandName": "レダコート", "rank": "medium", "form": "外用", "aliases": ["レダコート軟膏"], "note": "" },
+  { "id": "prednisolone", "genericName": "プレドニゾロン", "brandName": "プレドニン", "rank": "weak", "form": "外用", "aliases": ["プレドニン軟膏"], "note": "" },
+  { "id": "hydrocortisone", "genericName": "ヒドロコルチゾン", "brandName": "コルテス / オイラックスH", "rank": "weak", "form": "外用", "aliases": ["コルテス", "オイラックスH"], "note": "弱群。OTC と混同しないよう剤形確認。" }
 ]

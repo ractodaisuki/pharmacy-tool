@@ -1,11 +1,11 @@
 [
-  { "id": "psychotropic-key", "task": "向精神薬カギ", "done": false, "aliases": ["向精神薬鍵"], "note": "施錠状態を最終確認。" },
+  { "id": "psychotropic-key", "task": "向精神薬カギかける", "done": false, "aliases": ["向精神薬カギ", "向精神薬鍵"], "note": "施錠状態を最終確認。" },
   { "id": "ipad-charge", "task": "iPad充電", "done": false, "aliases": ["タブレット充電"], "note": "翌日業務に支障がないか確認。" },
-  { "id": "phone-charge", "task": "電話機充電確認", "done": false, "aliases": ["黒電・クリア・留守電→充電"], "note": "複数端末をまとめて確認。" },
-  { "id": "aircon-off", "task": "エアコンOFF", "done": false, "aliases": ["エアコン切る"], "note": "" },
+  { "id": "phone-charge", "task": "黒電→クリア→留守電→充電", "done": false, "aliases": ["電話機充電確認"], "note": "複数端末をまとめて確認。" },
+  { "id": "aircon-off", "task": "エアコン切る", "done": false, "aliases": ["エアコンOFF"], "note": "" },
   { "id": "close-window", "task": "小窓閉める", "done": false, "aliases": ["小窓確認"], "note": "" },
-  { "id": "power-off", "task": "電源OFF確認", "done": false, "aliases": ["ポリムス電源OFF"], "note": "対象機器の消し忘れ防止。" },
-  { "id": "logbook", "task": "薬局管理簿記入", "done": false, "aliases": ["薬局管理簿の本日分"], "note": "本日分が埋まっているか確認。" },
-  { "id": "receipt-date", "task": "領収印日付変更", "done": false, "aliases": ["領収印の日付変更"], "note": "" },
-  { "id": "eprescription", "task": "電子処方箋送信", "done": false, "aliases": ["電子処方箋調剤結果送信"], "note": "送信結果の反映まで確認。" }
+  { "id": "power-off", "task": "ポリムス電源OFF", "done": false, "aliases": ["電源OFF確認"], "note": "対象機器の消し忘れ防止。" },
+  { "id": "logbook", "task": "薬局管理簿の本日分", "done": false, "aliases": ["薬局管理簿記入"], "note": "本日分が埋まっているか確認。" },
+  { "id": "receipt-date", "task": "領収印の日付を変える", "done": false, "aliases": ["領収印日付変更"], "note": "" },
+  { "id": "eprescription", "task": "電子処方箋調剤結果送信", "done": false, "aliases": ["電子処方箋送信"], "note": "送信結果の反映まで確認。" }
 ]

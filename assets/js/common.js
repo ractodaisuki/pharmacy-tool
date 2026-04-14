@@ -28,11 +28,11 @@ export async function loadJson(path) {
 
 export function escapeHtml(value = "") {
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 export function formatDate(value) {
@@ -173,7 +173,7 @@ async function buildSearchIndex() {
     }));
   }));
 
-  return groups.flat();
+  return [].concat(...groups);
 }
 
 let searchIndexPromise;
@@ -281,8 +281,11 @@ export function renderPageHeader(container, category, count, extraMeta = "") {
 export function highlightHashTarget() {
   const params = new URLSearchParams(window.location.search);
   const itemId = params.get("item");
+  const escapedItemId = itemId
+    ? String(itemId).replace(/\\/g, "\\\\").replace(/"/g, '\\"')
+    : "";
   const targets = itemId
-    ? document.querySelectorAll(`[data-item-id="${CSS.escape(itemId)}"]`)
+    ? document.querySelectorAll(`[data-item-id="${escapedItemId}"]`)
     : [];
 
   let target = [...targets].find((node) => !node.closest(".hidden"));

@@ -22,6 +22,43 @@ function renderCardField(label, value) {
   `;
 }
 
+function quickTableSummary(quickTable) {
+  if (!quickTable || !quickTable.headers || !quickTable.headers.length || !quickTable.rows || !quickTable.rows.length) {
+    return "";
+  }
+
+  return quickTable.rows.map((row) => (
+    `${row.label}: ${row.values.join(" / ")}`
+  )).join(" | ");
+}
+
+function renderQuickTable(quickTable) {
+  if (!quickTable || !quickTable.headers || !quickTable.headers.length || !quickTable.rows || !quickTable.rows.length) {
+    return "";
+  }
+
+  return `
+    <div class="mini-table-wrap">
+      <table class="mini-table">
+        <thead>
+          <tr>
+            <th>${escapeHtml(quickTable.cornerLabel || "区分")}</th>
+            ${quickTable.headers.map((header) => `<th>${escapeHtml(header)}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          ${quickTable.rows.map((row) => `
+            <tr>
+              <th scope="row">${escapeHtml(row.label)}</th>
+              ${row.values.map((value) => `<td>${escapeHtml(value)}</td>`).join("")}
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
 function renderTable(columns, items, rowRenderer) {
   return `
     <div class="table-wrap">
@@ -131,6 +168,7 @@ function renderPediatricItems(items) {
             ${renderCardField("補足", item.note)}
             ${renderCardField("更新", formatDate(item.updatedAt))}
           </dl>
+          ${renderQuickTable(item.quickTable)}
         </article>
       `).join("")}
     </div>
@@ -146,7 +184,7 @@ function renderPediatricItems(items) {
         <td>${escapeHtml(item.dosage)}</td>
         <td>${escapeHtml(item.frequency)}</td>
         <td>${escapeHtml(item.ageCondition)}</td>
-        <td>${escapeHtml(item.note || (item.aliases || []).join(" / "))}</td>
+        <td>${escapeHtml(item.note || (item.aliases || []).join(" / "))}${item.quickTable ? `<br><small>${escapeHtml(quickTableSummary(item.quickTable))}</small>` : ""}</td>
         <td>${escapeHtml(formatDate(item.updatedAt))}</td>
       </tr>
     `
@@ -207,6 +245,10 @@ function rankLabel(rank) {
   }
 }
 
+function rankClassName(rank) {
+  return String(rank || "").split(" ").join("-");
+}
+
 function renderSteroidItems(items) {
   const cards = `
     <div class="card-grid">
@@ -214,7 +256,7 @@ function renderSteroidItems(items) {
         <article class="data-card" data-item-id="${escapeHtml(item.id)}">
           <div class="card-title-row">
             <h3>${escapeHtml(item.brandName)}</h3>
-            <span class="rank-badge rank-${escapeHtml(item.rank.replaceAll(" ", "-"))}">${escapeHtml(rankLabel(item.rank))}</span>
+            <span class="rank-badge rank-${escapeHtml(rankClassName(item.rank))}">${escapeHtml(rankLabel(item.rank))}</span>
           </div>
           <dl>
             ${renderCardField("一般名", item.genericName)}
@@ -233,7 +275,7 @@ function renderSteroidItems(items) {
       <tr data-item-id="${escapeHtml(item.id)}">
         <td>${escapeHtml(item.brandName)}</td>
         <td>${escapeHtml(item.genericName)}</td>
-        <td><span class="rank-badge rank-${escapeHtml(item.rank.replaceAll(" ", "-"))}">${escapeHtml(rankLabel(item.rank))}</span></td>
+        <td><span class="rank-badge rank-${escapeHtml(rankClassName(item.rank))}">${escapeHtml(rankLabel(item.rank))}</span></td>
         <td>${escapeHtml(item.form)}</td>
         <td>${escapeHtml(item.note || (item.aliases || []).join(" / "))}</td>
       </tr>
@@ -315,13 +357,16 @@ function loadChecklistState(items) {
     key,
     items: items.map((item) => ({
       ...item,
-      done: Boolean(saved[item.id] ?? item.done)
+      done: Boolean(Object.prototype.hasOwnProperty.call(saved, item.id) ? saved[item.id] : item.done)
     }))
   };
 }
 
 function saveChecklistState(storageKey, items) {
-  const payload = Object.fromEntries(items.map((item) => [item.id, item.done]));
+  const payload = {};
+  items.forEach((item) => {
+    payload[item.id] = item.done;
+  });
   localStorage.setItem(storageKey, JSON.stringify(payload));
 }
 
@@ -469,7 +514,7 @@ export async function renderHomePage() {
 
   const favoriteItems = SITE_META.favorites.map((favorite) => {
     const categoryData = allCategoryData.find((entry) => entry.category.id === favorite.categoryId);
-    const item = categoryData?.items.find((entry) => entry.id === favorite.itemId);
+    const item = categoryData && categoryData.items.find((entry) => entry.id === favorite.itemId);
     return item ? { category: categoryData.category, item } : null;
   }).filter(Boolean);
 

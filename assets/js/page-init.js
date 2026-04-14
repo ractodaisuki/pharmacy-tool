@@ -31,7 +31,7 @@ init().catch((error) => {
         <h2>表示エラー</h2>
         <ul class="note-list warning-list">
           <li>データの読み込みに失敗しました。</li>
-          <li>ローカル確認時は `python3 -m http.server` などのサーバー経由で開いてください。</li>
+          <li>ローカル確認時は python3 -m http.server などのサーバー経由で開いてください。</li>
           <li>${error.message}</li>
         </ul>
       </section>
