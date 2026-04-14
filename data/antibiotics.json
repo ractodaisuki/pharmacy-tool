@@ -1,0 +1,19 @@
+[
+  { "id": "cefalexin", "genericName": "セファレキシン", "brandName": "ケフレックス", "class": "セフェム", "aliases": ["CEX"], "note": "第1世代セフェムとして整理。" },
+  { "id": "cefaclor", "genericName": "セフアクロル", "brandName": "ケフラール", "class": "セフェム", "aliases": ["CCL"], "note": "" },
+  { "id": "cefdinir", "genericName": "セフジニル", "brandName": "セフゾン", "class": "セフェム", "aliases": ["CFDN"], "note": "" },
+  { "id": "cefteram", "genericName": "セフテラム", "brandName": "トミロン", "class": "セフェム", "aliases": ["CFTM"], "note": "" },
+  { "id": "cefpodoxime", "genericName": "セフポドキシム", "brandName": "バナン", "class": "セフェム", "aliases": ["CPDX"], "note": "" },
+  { "id": "cefditoren", "genericName": "セフジトレン", "brandName": "メイアクト", "class": "セフェム", "aliases": ["CDTR", "メイアクトMS"], "note": "細粒・錠剤の呼び分けに注意。" },
+  { "id": "cefcapene", "genericName": "セフカペン", "brandName": "フロモックス", "class": "セフェム", "aliases": ["CFPN"], "note": "" },
+  { "id": "roxithromycin", "genericName": "ロキシスロマイシン", "brandName": "ルリッド", "class": "マクロライド", "aliases": ["RXM"], "note": "" },
+  { "id": "azithromycin", "genericName": "アジスロマイシン", "brandName": "ジスロマック", "class": "マクロライド", "aliases": ["AZM"], "note": "" },
+  { "id": "clarithromycin-list", "genericName": "クラリスロマイシン", "brandName": "クラリス", "class": "マクロライド", "aliases": ["CAM"], "note": "" },
+  { "id": "erythromycin", "genericName": "エリスロマイシン", "brandName": "エリスロシン", "class": "マクロライド", "aliases": ["EM"], "note": "エリスロマイシン系の代表として登録。" },
+  { "id": "clindamycin", "genericName": "クリンダマイシン", "brandName": "ダラシン", "class": "リンコマイシン", "aliases": ["CLDM"], "note": "" },
+  { "id": "ofloxacin", "genericName": "オフロキサシン", "brandName": "タリビッド", "class": "ニューキノロン", "aliases": ["OFLX"], "note": "" },
+  { "id": "sitafloxacin", "genericName": "シタフロキサシン", "brandName": "グレースビット", "class": "ニューキノロン", "aliases": ["STFX"], "note": "" },
+  { "id": "levofloxacin", "genericName": "レボフロキサシン", "brandName": "クラビット", "class": "ニューキノロン", "aliases": ["LVFX"], "note": "" },
+  { "id": "tosufloxacin-list", "genericName": "トスフロキサシン", "brandName": "オゼックス", "class": "ニューキノロン", "aliases": ["TFLX"], "note": "小児用量ページにも関連項目あり。" },
+  { "id": "garenoxacin", "genericName": "ガレノキサシン", "brandName": "ジェニナック", "class": "ニューキノロン", "aliases": ["GRNX"], "note": "" }
+]

@@ -1,0 +1,8 @@
+[
+  { "id": "clobetasol-propionate", "genericName": "クロベタゾールプロピオン酸エステル", "brandName": "デルモベート", "rank": "strongest", "form": "外用", "aliases": ["デルモベート軟膏"], "note": "最強群。部位と使用期間の確認が必要。" },
+  { "id": "mometasone-furoate", "genericName": "モメタゾンフランカルボン酸エステル", "brandName": "フルメタ", "rank": "very strong", "form": "外用", "aliases": ["フルメタ軟膏"], "note": "" },
+  { "id": "betamethasone-butyrate-propionate", "genericName": "ベタメタゾン酪酸エステルプロピオン酸エステル", "brandName": "アンテベート", "rank": "very strong", "form": "外用", "aliases": ["アンテベート軟膏"], "note": "" },
+  { "id": "dexamethasone-propionate", "genericName": "デキサメタゾンプロピオン酸エステル", "brandName": "エクラー", "rank": "strong", "form": "外用", "aliases": ["エクラー軟膏"], "note": "" },
+  { "id": "prednisolone-valerate-acetate", "genericName": "プレドニゾロン吉草酸エステル酢酸エステル", "brandName": "リドメックスコーワ", "rank": "medium", "form": "外用", "aliases": ["リドメックス"], "note": "" },
+  { "id": "hydrocortisone", "genericName": "ヒドロコルチゾン", "brandName": "オイラックスH", "rank": "weak", "form": "外用", "aliases": ["ヒドロコルチゾン製剤"], "note": "弱群。OTC と混同しないよう剤形確認。" }
+]

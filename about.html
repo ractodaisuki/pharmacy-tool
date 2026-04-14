@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="薬局業務メモサイトの利用方針と保守方針です。">
+  <title>このサイトについて | 薬局業務メモ</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body data-base="." data-page="about">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="topbar">
+        <a class="brand" href="./index.html">
+          <span class="brand-mark">Ph</span>
+          <span>
+            <strong>薬局業務メモ</strong>
+            <small>利用方針と保守メモ</small>
+          </span>
+        </a>
+        <a class="ghost-button" href="./index.html">トップへ戻る</a>
+      </div>
+      <nav class="quick-nav" data-quick-nav aria-label="カテゴリ一覧"></nav>
+      <section class="search-strip">
+        <form class="search-form" data-global-search>
+          <label class="visually-hidden" for="global-search-about">サイト内検索</label>
+          <input id="global-search-about" name="q" type="search" placeholder="全体検索" autocomplete="off">
+          <button type="submit">検索</button>
+        </form>
+        <div class="search-results" data-search-results hidden></div>
+      </section>
+    </header>
+
+    <main class="page-main">
+      <section class="hero-panel compact-hero">
+        <div class="eyebrow">About</div>
+        <h1>このサイトについて</h1>
+        <p class="lead">
+          日常業務で参照頻度の高い情報を、静的サイトとして整理した個人メモです。検索性、更新しやすさ、スマホ片手操作を優先しています。
+        </p>
+      </section>
+
+      <section class="section-card prose-card">
+        <h2>位置づけ</h2>
+        <ul class="note-list">
+          <li>業務補助用メモであり、診療判断や医療行為を断定する用途ではありません。</li>
+          <li>最終確認は添付文書、最新の公式資料、施設ルールで行う前提です。</li>
+          <li>患者個人情報や店舗固有の秘匿情報は扱わない想定です。</li>
+        </ul>
+      </section>
+
+      <section class="section-card prose-card">
+        <h2>設計方針</h2>
+        <ul class="note-list">
+          <li>GitHub Pages にそのまま配置できるよう、ビルド不要の静的構成にしています。</li>
+          <li>データは `data/` の JSON に分離し、HTML 側は表示に専念させています。</li>
+          <li>表記ゆれ対応のため、各データに `aliases` や `note` を持たせています。</li>
+          <li>業務チェックリストは `localStorage` に保存し、日付単位で管理します。</li>
+        </ul>
+      </section>
+
+      <section class="notice-panel">
+        <h2>利用時の注意</h2>
+        <ul class="note-list warning-list">
+          <li>小児用量は必ず体重、年齢、適応、剤形を再確認してください。</li>
+          <li>加算や調剤管理の算定要件は改定や施設運用で差が出るため、最新の算定資料を優先してください。</li>
+          <li>本サイトの内容は個人メモベースのため、必要に応じて自分用に追記・修正して使う前提です。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+  </div>
+  <script type="module" src="./assets/js/page-init.js"></script>
+</body>
+</html>

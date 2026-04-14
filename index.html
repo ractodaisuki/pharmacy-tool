@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="薬局業務でよく使う情報を素早く参照するための個人メモサイトです。">
+  <title>薬局業務メモサイト</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body data-base="." data-page="home">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="topbar">
+        <a class="brand" href="./index.html">
+          <span class="brand-mark">Ph</span>
+          <span>
+            <strong>薬局業務メモ</strong>
+            <small>仕事中にすぐ引ける早見表</small>
+          </span>
+        </a>
+        <a class="ghost-button" href="./about.html">このサイトについて</a>
+      </div>
+      <nav class="quick-nav" data-quick-nav aria-label="カテゴリ一覧"></nav>
+      <section class="search-strip">
+        <form class="search-form" data-global-search>
+          <label class="visually-hidden" for="global-search-home">サイト内検索</label>
+          <input id="global-search-home" name="q" type="search" placeholder="一般名・商品名・カテゴリ・備考で検索" autocomplete="off">
+          <button type="submit">検索</button>
+        </form>
+        <div class="search-results" data-search-results hidden></div>
+      </section>
+    </header>
+
+    <main class="page-main">
+      <section class="hero-panel">
+        <div class="eyebrow">モバイルファースト / GitHub Pages 対応</div>
+        <h1>薬局業務用・個人メモサイト</h1>
+        <p class="lead">
+          小児用量、抗菌薬、ステロイドランク、調剤管理メモなどを、スマホでも PC でも見やすく整理した静的サイトです。
+        </p>
+        <div class="hero-actions">
+          <a class="primary-button" href="./categories/pediatric.html">よく使う小児用量へ</a>
+          <a class="secondary-button" href="./categories/checklist.html">業務チェックリストへ</a>
+        </div>
+        <div class="status-row">
+          <span class="status-chip">3タップ以内で到達しやすい構成</span>
+          <span class="status-chip">カード表示優先</span>
+          <span class="status-chip">データは JSON 分離</span>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <div>
+            <h2>カテゴリ</h2>
+            <p>頻出カテゴリを上位に配置しています。</p>
+          </div>
+        </div>
+        <div class="category-grid" data-category-grid></div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <div>
+            <h2>よく使う項目</h2>
+            <p>トップから直接ジャンプしやすい代表項目です。</p>
+          </div>
+        </div>
+        <div class="favorite-grid" data-favorite-grid></div>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="section-card compact-card">
+          <div class="section-head">
+            <div>
+              <h2>最終更新日</h2>
+              <p>データ更新の目安です。</p>
+            </div>
+          </div>
+          <p class="big-date" data-site-updated-at></p>
+        </article>
+
+        <article class="section-card compact-card">
+          <div class="section-head">
+            <div>
+              <h2>検索のコツ</h2>
+              <p>表記ゆれに備えて別名も検索対象です。</p>
+            </div>
+          </div>
+          <ul class="note-list">
+            <li>一般名、商品名、カテゴリ名、備考で横断検索できます。</li>
+            <li>結果からそのままカテゴリページの該当項目に移動できます。</li>
+            <li>スマホではカード、PC では表を初期表示にしています。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="notice-panel">
+        <h2>注意</h2>
+        <ul class="note-list warning-list">
+          <li>業務補助用メモです。</li>
+          <li>最終判断は添付文書・最新資料・施設ルールを優先してください。</li>
+          <li>小児用量は体重・年齢・適応を再確認してください。</li>
+          <li>患者個人情報や店舗固有の秘匿情報は含めない前提です。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+  </div>
+  <script type="module" src="./assets/js/page-init.js"></script>
+</body>
+</html>

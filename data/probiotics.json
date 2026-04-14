@@ -1,0 +1,10 @@
+[
+  { "id": "biofermin-r-06", "name": "耐性乳酸菌散0.6%", "brand": "ビオフェルミンR", "aliases": ["ビオフェルミンR散"], "note": "抗菌薬併用時メモとして使いやすい代表例。" },
+  { "id": "lactobee-r-10", "name": "耐性乳酸菌散1.0%", "brand": "ラックビーR", "aliases": ["ラックビーR散"], "note": "" },
+  { "id": "rebenin-18", "name": "耐性乳酸菌散1.8%", "brand": "レベニン", "aliases": ["レベニン散"], "note": "" },
+  { "id": "enteronon-r-10", "name": "耐性乳酸菌散10%", "brand": "エンテロノンR", "aliases": ["エンテロノンR散"], "note": "" },
+  { "id": "bifidus-12", "name": "ビフィズス菌1.2%", "brand": "ビオフェルミン散剤", "aliases": ["ビフィズス菌製剤"], "note": "" },
+  { "id": "biofermin-mixed", "name": "ビオフェルミン配合散", "brand": "", "aliases": ["配合散"], "note": "配合内容は採用品規格を確認。" },
+  { "id": "lactomin", "name": "ラクトミン", "brand": "", "aliases": ["乳酸菌末"], "note": "元メモ由来の表記を残した補助項目。" },
+  { "id": "saccharated-bacteria", "name": "糖化菌", "brand": "", "aliases": ["酪酸菌", "宮入菌系メモ"], "note": "整腸剤比較時の補助メモ。" }
+]
