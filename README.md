@@ -54,6 +54,9 @@ python3 -m http.server 8000
 - 元メモの補足や表記揺れは `note` に残してください
 - 日付管理したい項目は `updatedAt` を `YYYY-MM-DD` で入れてください
 - 小児用量計算機に出したい薬は `dosageMgPerKgMin` `dosageMgPerKgMax` `dosesPerDay` も入力してください
+- g 換算や g からの逆算に対応させる場合は `strengthMgPerGram` も入力してください
+- mL 換算や mL からの逆算に対応させる場合は `strengthMgPerMl` も入力してください
+- `%` 表記のシロップは、実装上は `w/v%` を前提に `0.05% = 0.5mg/mL` `5% = 50mg/mL` として扱っています
 
 例:
 
@@ -67,6 +70,8 @@ python3 -m http.server 8000
   "dosageMgPerKgMin": 10,
   "dosageMgPerKgMax": 10,
   "dosesPerDay": 2,
+  "strengthMgPerGram": 100,
+  "strengthMgPerMl": 10,
   "frequency": "分2",
   "ageCondition": "必要時のみ追記",
   "note": "元メモの補足をここに書く",

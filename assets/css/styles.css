@@ -621,6 +621,52 @@ tbody tr:target,
   grid-template-columns: 1fr;
 }
 
+.pediatric-group-block + .pediatric-group-block {
+  margin-top: 18px;
+}
+
+.pediatric-group-head {
+  margin-bottom: 12px;
+}
+
+.pediatric-table-wrap {
+  background: #fcfeff;
+}
+
+.pediatric-matrix-table {
+  min-width: 1320px;
+}
+
+.pediatric-matrix-table .pediatric-name-col {
+  min-width: 220px;
+  width: 220px;
+  text-align: left;
+}
+
+.pediatric-matrix-table thead tr:first-child th {
+  text-align: center;
+}
+
+.pediatric-matrix-table thead .pediatric-name-col {
+  text-align: left;
+}
+
+.pediatric-matrix-table thead tr:last-child th {
+  min-width: 92px;
+}
+
+.pediatric-matrix-table thead small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.pediatric-matrix-table td small {
+  display: block;
+  margin-top: 6px;
+}
+
 .calculator-card {
   background: linear-gradient(180deg, #fafdfe 0%, #ffffff 100%);
 }
@@ -628,6 +674,32 @@ tbody tr:target,
 .calculator-grid {
   display: grid;
   gap: 12px;
+}
+
+.calculator-panels {
+  display: grid;
+  gap: 14px;
+}
+
+.calculator-form {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.calculator-block-title {
+  margin-bottom: 12px;
+}
+
+.calculator-block-title h3,
+.calculator-block-title p {
+  margin: 0;
+}
+
+.calculator-block-title p {
+  margin-top: 4px;
+  color: var(--muted);
 }
 
 .calculator-field {
@@ -667,12 +739,22 @@ tbody tr:target,
 .calculator-placeholder,
 .calculator-error,
 .calculator-caption,
-.calculator-note {
+.calculator-note,
+.calculator-warning {
   margin: 0;
 }
 
 .calculator-error {
   color: var(--danger);
+  font-weight: 700;
+}
+
+.calculator-warning {
+  padding: 12px 14px;
+  border: 1px solid rgba(206, 95, 75, 0.28);
+  border-radius: 14px;
+  background: #fff4f1;
+  color: #a44a39;
   font-weight: 700;
 }
 
@@ -798,6 +880,10 @@ tbody tr:target,
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .calculator-panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .calculator-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -819,5 +905,9 @@ tbody tr:target,
   .card-grid,
   .billing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .calculator-panels {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
