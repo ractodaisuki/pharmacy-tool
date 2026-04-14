@@ -151,6 +151,163 @@ function bindFilters(section, items, renderFiltered, category) {
   draw();
 }
 
+function hasCalculatorFields(item) {
+  return Number.isFinite(item.dosageMgPerKgMin)
+    && Number.isFinite(item.dosageMgPerKgMax)
+    && Number.isFinite(item.dosesPerDay)
+    && item.dosesPerDay > 0;
+}
+
+function formatDoseNumber(value) {
+  if (!Number.isFinite(value)) {
+    return "-";
+  }
+
+  if (value >= 100) {
+    return String(Math.round(value));
+  }
+
+  return String(Math.round(value * 10) / 10);
+}
+
+function formatDoseRange(minValue, maxValue) {
+  if (!Number.isFinite(minValue) || !Number.isFinite(maxValue)) {
+    return "-";
+  }
+
+  const minText = formatDoseNumber(minValue);
+  const maxText = formatDoseNumber(maxValue);
+  return minText === maxText ? `${minText}mg` : `${minText}〜${maxText}mg`;
+}
+
+function renderPediatricCalculator(items) {
+  const calculableItems = items.filter(hasCalculatorFields);
+
+  return `
+    <section class="section-card calculator-card">
+      <div class="section-head">
+        <div>
+          <h2>小児用量計算機</h2>
+          <p>体重と薬剤から、1日量と1回量の目安をすぐ確認できます。</p>
+        </div>
+      </div>
+      <form class="calculator-form" data-pediatric-calculator>
+        <div class="calculator-grid">
+          <label class="calculator-field">
+            <span class="field-label">体重（kg）</span>
+            <input type="number" inputmode="decimal" min="0.1" step="0.1" name="weight" placeholder="例: 15">
+          </label>
+          <label class="calculator-field">
+            <span class="field-label">薬剤</span>
+            <select name="drug">
+              <option value="">薬剤を選択</option>
+              ${calculableItems.map((item) => (
+                `<option value="${escapeHtml(item.id)}">${escapeHtml(item.name)}</option>`
+              )).join("")}
+            </select>
+          </label>
+          <div class="calculator-actions">
+            <button class="primary-button" type="submit">計算する</button>
+          </div>
+        </div>
+        <div class="calculator-result" data-calculator-result>
+          <p class="calculator-placeholder">体重と薬剤を入力すると、ここに計算結果が表示されます。</p>
+        </div>
+        <ul class="note-list warning-list calculator-notes">
+          <li>実際の投与量は添付文書・医師指示を優先してください。</li>
+          <li>腎機能・年齢・適応により調整が必要です。</li>
+        </ul>
+      </form>
+    </section>
+  `;
+}
+
+function bindPediatricCalculator(section, items) {
+  const form = section.querySelector("[data-pediatric-calculator]");
+  if (!form) {
+    return;
+  }
+
+  const weightInput = form.querySelector('input[name="weight"]');
+  const drugSelect = form.querySelector('select[name="drug"]');
+  const result = form.querySelector("[data-calculator-result]");
+
+  function renderMessage(message, isError) {
+    result.innerHTML = `<p class="${isError ? "calculator-error" : "calculator-placeholder"}">${escapeHtml(message)}</p>`;
+  }
+
+  // 体重と mg/kg/day から 1 日量と 1 回量の目安を計算する。
+  function calculateDose(item, weight) {
+    const minDailyDose = weight * item.dosageMgPerKgMin;
+    const maxDailyDose = weight * item.dosageMgPerKgMax;
+    const minPerDose = minDailyDose / item.dosesPerDay;
+    const maxPerDose = maxDailyDose / item.dosesPerDay;
+
+    return {
+      minDailyDose,
+      maxDailyDose,
+      minPerDose,
+      maxPerDose
+    };
+  }
+
+  function updateResult() {
+    const weight = Number(weightInput.value);
+    const selectedId = drugSelect.value;
+    const item = items.find((entry) => entry.id === selectedId);
+
+    if (!selectedId) {
+      renderMessage("薬剤を選択してください。", true);
+      return;
+    }
+
+    if (!Number.isFinite(weight) || weight <= 0) {
+      renderMessage("体重を入力してください。", true);
+      return;
+    }
+
+    if (!item || !hasCalculatorFields(item)) {
+      renderMessage("この薬剤は計算用データが未設定です。", true);
+      return;
+    }
+
+    const calculated = calculateDose(item, weight);
+    result.innerHTML = `
+      <div class="calculator-summary">
+        <p class="calculator-drug">${escapeHtml(item.name)} / ${escapeHtml(formatDoseNumber(weight))}kg</p>
+        <div class="calculator-metrics">
+          <article class="calculator-metric">
+            <span class="calculator-label">1日量</span>
+            <strong>${escapeHtml(formatDoseRange(calculated.minDailyDose, calculated.maxDailyDose))}</strong>
+          </article>
+          <article class="calculator-metric">
+            <span class="calculator-label">1回量</span>
+            <strong>${escapeHtml(formatDoseRange(calculated.minPerDose, calculated.maxPerDose))}</strong>
+          </article>
+          <article class="calculator-metric">
+            <span class="calculator-label">投与回数</span>
+            <strong>1日${escapeHtml(String(item.dosesPerDay))}回</strong>
+          </article>
+          <article class="calculator-metric">
+            <span class="calculator-label">用量範囲</span>
+            <strong>${escapeHtml(`${item.dosageMgPerKgMin}〜${item.dosageMgPerKgMax}mg/kg/日`)}</strong>
+          </article>
+        </div>
+        <p class="calculator-caption">1回量: ${escapeHtml(formatDoseRange(calculated.minPerDose, calculated.maxPerDose))}（1日${escapeHtml(String(item.dosesPerDay))}回）</p>
+        ${item.note ? `<p class="muted-text calculator-note">${escapeHtml(item.note)}</p>` : ""}
+      </div>
+    `;
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    updateResult();
+  });
+
+  weightInput.addEventListener("input", updateResult);
+  drugSelect.addEventListener("change", updateResult);
+}
+
 function renderPediatricItems(items) {
   const cards = `
     <div class="card-grid">
@@ -548,6 +705,13 @@ export async function renderCategoryPage(category) {
     renderChecklistSection(checklistMount, state.items, state.key);
     highlightHashTarget();
     return;
+  }
+
+  if (category.type === "pediatric") {
+    const calculatorMount = document.createElement("div");
+    calculatorMount.innerHTML = renderPediatricCalculator(items);
+    container.appendChild(calculatorMount.firstElementChild);
+    bindPediatricCalculator(container, items);
   }
 
   const section = document.createElement("div");

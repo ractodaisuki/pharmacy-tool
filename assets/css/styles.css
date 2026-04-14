@@ -48,7 +48,8 @@ a {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -620,6 +621,102 @@ tbody tr:target,
   grid-template-columns: 1fr;
 }
 
+.calculator-card {
+  background: linear-gradient(180deg, #fafdfe 0%, #ffffff 100%);
+}
+
+.calculator-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.calculator-field {
+  display: grid;
+  gap: 6px;
+}
+
+.calculator-field input,
+.calculator-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--text);
+}
+
+.calculator-actions {
+  display: flex;
+  align-items: end;
+}
+
+.calculator-actions .primary-button {
+  width: 100%;
+}
+
+.calculator-result {
+  margin-top: 14px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #f8fcfc;
+}
+
+.calculator-placeholder,
+.calculator-error,
+.calculator-caption,
+.calculator-note {
+  margin: 0;
+}
+
+.calculator-error {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.calculator-summary {
+  display: grid;
+  gap: 12px;
+}
+
+.calculator-drug {
+  margin: 0;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.calculator-metrics {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.calculator-metric {
+  padding: 14px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e3edef;
+}
+
+.calculator-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.calculator-metric strong {
+  display: block;
+  font-size: clamp(1.1rem, 4vw, 1.45rem);
+  line-height: 1.35;
+}
+
+.calculator-notes {
+  margin-top: 14px;
+}
+
 .billing-card ul {
   margin: 10px 0 0;
   padding-left: 1.2rem;
@@ -694,6 +791,14 @@ tbody tr:target,
   .favorite-grid,
   .card-grid,
   .billing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .calculator-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .calculator-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

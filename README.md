@@ -53,6 +53,7 @@ python3 -m http.server 8000
 - 検索用の別表記は `aliases` に追加してください
 - 元メモの補足や表記揺れは `note` に残してください
 - 日付管理したい項目は `updatedAt` を `YYYY-MM-DD` で入れてください
+- 小児用量計算機に出したい薬は `dosageMgPerKgMin` `dosageMgPerKgMax` `dosesPerDay` も入力してください
 
 例:
 
@@ -63,6 +64,9 @@ python3 -m http.server 8000
   "aliases": ["別名", "略称"],
   "category": "抗菌薬",
   "dosage": "10mg/kg/日",
+  "dosageMgPerKgMin": 10,
+  "dosageMgPerKgMax": 10,
+  "dosesPerDay": 2,
   "frequency": "分2",
   "ageCondition": "必要時のみ追記",
   "note": "元メモの補足をここに書く",
@@ -119,6 +123,7 @@ python3 -m http.server 8000
 - 指定された用量や業務メモは「初期サンプルとして整理した値」とし、最終確認は添付文書・施設ルール・最新資料を優先する前提にしています。
 - 画像メモ由来の表記ゆれに対応するため、`aliases` と `note` を追加しています。
 - 添付画像の文字が小さい箇所は、読み取れた範囲を保守しやすい形で整理して反映しています。曖昧だった箇所は `note` 側に寄せ、後から修正しやすくしています。
+- 小児用量計算機では、回数に幅がある薬は代表回数を 1 つ採用して計算しています。採用した仮定は各項目の `note` に残しています。
 - 業務チェックリストは日次運用を想定し、`localStorage` を日付単位キーで保存する実装にしています。
 - ステロイドランク名は国際的な表記ではなく、指定の `strongest / very strong / strong / medium / weak` を内部キーとして統一しています。
 - GitHub Pages のサブディレクトリ公開でも動くよう、各ページは相対パスで JSON とアセットを読み込みます。
